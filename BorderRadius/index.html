@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Border Radius - Powered by SirProxy</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(63, 63, 63);
+        }
+
+        .bloco {
+            margin-top: 10vh;
+        }
+
+        input {
+            border: none;
+            width: 40px;
+            height: 20px;
+            margin-left: 90px;
+            margin-right: 90px;
+            background: rgb(236, 236, 236);
+            border-radius: 5px;
+            padding-left: 5px;
+        }
+
+        .container {
+            background: rgb(236, 236, 236);
+            max-height: 500px;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding-top: 75px;
+            padding-bottom: 50px;
+
+            -webkit-box-shadow: 3px 3px 7px -1px rgba(0, 0, 0, 0.48);
+            -moz-box-shadow: 3px 3px 7px -1px rgba(0, 0, 0, 0.48);
+            box-shadow: 3px 3px 7px -1px rgba(0, 0, 0, 0.48);
+        }
+
+        .container2 {
+            background-color: white;
+            height: 300px;
+            width: 400px;
+            margin-left: 50px;
+        }
+
+        h2,
+        p {
+            font-family: 'Indie Flower', cursive;
+            color: rgb(218, 218, 218);
+        }
+
+        p {
+            margin-top: -35px;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        a {
+            color: rgb(218, 218, 218);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(218, 218, 218);
+            text-decoration: none;
+        }
+
+        .container2 p {
+            color: rgb(94, 94, 94);
+        }
+    </style>
+</head>
+
+<body align="center">
+
+    <div class="bloco">
+
+        <h2>CSS3 Border Radius</h2>
+        <p>Powered by <a href="#">SirProxy</a></p>
+
+        <div class="top">
+            <input type="number" min="0" id="formTopBorderLeft" onchange="AlteraClasse()">
+            <input type="number" min="0" id="formTopBorderRight" onchange="AlteraClasse()">
+        </div>
+
+        <div class="container" id="container">
+            <div class="container2">
+                <p id="copy">
+                    border-top-left-radius: <span id="TopBorderLeft">0</span>px; <br>
+                    border-top-right-radius: <span id="TopBorderRight">0</span>px; <br>
+                    border-bottom-right-radius: <span id="BottomBorderRight">0</span>px; <br>
+                    border-bottom-left-radius: <span id="BottomBorderLeft">0</span>px;
+                </p>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <input type="number" min="0" id="formBottomBorderLeft" onchange="AlteraClasse()">
+            <input type="number" min="0" id="formBottomBorderRight" onchange="AlteraClasse()">
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+
+        let varDefault;
+
+        function AlteraClasse() {
+            let container = document.getElementById('container');
+
+            let topBorderLeft = document.getElementById('formTopBorderLeft');
+            let topBorderRight = document.getElementById('formTopBorderRight');
+
+            let bottomBorderLeft = document.getElementById('formBottomBorderLeft');
+            let bottomBorderRight = document.getElementById('formBottomBorderRight');
+
+            if (topBorderRight.value == "" || topBorderRight.value == varDefault.value &&
+                bottomBorderLeft.value == "" || bottomBorderLeft.value == varDefault.value &&
+                bottomBorderRight.value == "" || bottomBorderRight.value == varDefault.value
+            ) {
+                topBorderRight.value = topBorderLeft.value;
+                bottomBorderLeft.value = topBorderLeft.value;
+                bottomBorderRight.value = topBorderLeft.value;
+                varDefault = topBorderLeft.value;
+
+                document.getElementById('TopBorderLeft').innerHTML = topBorderLeft.value;
+                document.getElementById('TopBorderRight').innerHTML = topBorderLeft.value;
+                document.getElementById('BottomBorderRight').innerHTML = topBorderLeft.value;
+                document.getElementById('BottomBorderLeft').innerHTML = topBorderLeft.value;
+
+                container.style.borderTopLeftRadius = topBorderLeft.value + 'px';
+                container.style.borderTopRightRadius = topBorderRight.value + 'px';
+                container.style.borderBottomRightRadius = bottomBorderRight.value + 'px';
+                container.style.borderBottomLeftRadius = bottomBorderLeft.value + 'px';
+            } else {
+                varDefault = topBorderLeft.value;
+
+                document.getElementById('TopBorderLeft').innerHTML = topBorderLeft.value;
+                document.getElementById('TopBorderRight').innerHTML = topBorderRight.value;
+                document.getElementById('BottomBorderRight').innerHTML = bottomBorderRight.value;
+                document.getElementById('BottomBorderLeft').innerHTML = bottomBorderLeft.value;
+
+                container.style.borderTopLeftRadius = topBorderLeft.value + 'px';
+                container.style.borderTopRightRadius = topBorderRight.value + 'px';
+                container.style.borderBottomRightRadius = bottomBorderRight.value + 'px';
+                container.style.borderBottomLeftRadius = bottomBorderLeft.value + 'px';
+            }
+        }
+
+        document.getElementById("formTopBorderRight").onkeypress = function (e) {
+            // 13 é a tecla <ENTER>. Se ela for pressionada, mostrar o valor
+            if (e.keyCode == 13) {
+                AlteraClasse();
+                e.preventDefault();
+            }
+
+        }
+
+        document.getElementById("formTopBorderLeft").onkeypress = function (e) {
+            // 13 é a tecla <ENTER>. Se ela for pressionada, mostrar o valor
+            if (e.keyCode == 13) {
+                AlteraClasse();
+                e.preventDefault();
+            }
+
+        }
+
+        document.getElementById("formBottomBorderRight").onkeypress = function (e) {
+            // 13 é a tecla <ENTER>. Se ela for pressionada, mostrar o valor
+            if (e.keyCode == 13) {
+                AlteraClasse();
+                e.preventDefault();
+            }
+
+        }
+
+        document.getElementById("formBottomBorderLeft").onkeypress = function (e) {
+            // 13 é a tecla <ENTER>. Se ela for pressionada, mostrar o valor
+            if (e.keyCode == 13) {
+                AlteraClasse();
+                e.preventDefault();
+            }
+
+        }
+    </script>
+</body>
+
+</html>
