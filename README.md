@@ -4,7 +4,7 @@ Esse repositório é destinado para armazenar códigos dos aplicativos portifól
 
 ## Aplicativos
 
-* **CSS3 Border Radius** - [Clique para visualizar](https://github.com/SirProxy)
+* **CSS3 Border Radius** - [Clique para visualizar](https://sirproxy.github.io/AppIdeias/BorderRadius/)
 
 ## Autor
 
