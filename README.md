@@ -1,6 +1,6 @@
 # AppIdeias
 
-Esse repositório é destinado para armazenar códigos dos aplicativos portifólios que estão sendo desenvolvidos a fim de melhorar o conhecimento.
+Esse repositório é destinado para armazenar códigos dos aplicativos para estudo de programação
 
 ## Aplicativos
 
